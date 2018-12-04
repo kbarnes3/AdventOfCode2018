@@ -2,6 +2,9 @@
 .vs
 .vscode
 
+# IntelliJ files
+.idea
+
 # Generated files
 Debug/
 Release/
