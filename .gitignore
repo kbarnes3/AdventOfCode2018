@@ -1,6 +1,7 @@
 # VS [Code] files
 .vs
 .vscode
+*.user
 
 # IntelliJ files
 .idea
