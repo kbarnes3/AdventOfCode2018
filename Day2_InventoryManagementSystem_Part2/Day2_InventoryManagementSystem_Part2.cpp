@@ -3,19 +3,49 @@
 
 #include "pch.h"
 #include <iostream>
+#include "Data.h"
+
+void solve(_In_ const std::array<std::array<wchar_t, 5>, 7>& input)
+{
+    for (size_t i = 0; i < input.size(); i++)
+    {
+        const std::array<wchar_t, 5>& currentBoxId = input[i];
+        for (size_t j = 0; j < i; j++)
+        {
+            const std::array<wchar_t, 5>& comparingBoxId = input[j];
+            size_t differences = 0;
+
+            for (size_t k = 0; k < currentBoxId.size(); k++)
+            {
+                if (currentBoxId[k] != comparingBoxId[k])
+                {
+                    differences++;
+                    if (differences > 1)
+                    {
+                        break;
+                    }
+                }
+            }
+
+            if (differences == 1)
+            {
+                for (size_t k = 0; k < currentBoxId.size(); k++)
+                {
+                    if (currentBoxId[k] == comparingBoxId[k])
+                    {
+                        std::wcout << currentBoxId[k];
+                    }
+                }
+                std::wcout << std::endl;
+                return;
+            }
+        }
+    }
+
+    std::wcout << L"No matches found" << std::endl;
+}
 
 int main()
 {
-    std::cout << "Hello World!\n"; 
+    solve(sample_boxids);
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
