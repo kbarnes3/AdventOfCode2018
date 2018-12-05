@@ -11,6 +11,8 @@ void solve(_In_ const std::array<Claim, Count> input)
     std::unique_ptr<std::array<std::array<size_t, 1000>, 1000>> fabric_storage =
         std::make_unique<std::array<std::array<size_t, 1000>, 1000>>();
 
+    std::array<std::array<size_t, 1000>, 1000>& fabric = *fabric_storage.get();
+
     // Mark every square used in each claim
     for (const Claim& claim : input)
     {
@@ -18,14 +20,14 @@ void solve(_In_ const std::array<Claim, Count> input)
         {
             for (size_t j = claim.y; j < claim.y + claim.height; j++)
             {
-                (*fabric_storage.get())[j][i]++;
+                fabric[j][i]++;
             }
         }
     }
 
     // Count every square used more than once
     size_t duplicated = 0;
-    for (const std::array<size_t, 1000>& row : *fabric_storage.get())
+    for (const std::array<size_t, 1000>& row : fabric)
     {
         for (const size_t& cell : row)
         {
@@ -41,5 +43,5 @@ void solve(_In_ const std::array<Claim, Count> input)
 
 int main()
 {
-    solve(sample_claims);
+    solve(input_claims);
 }
