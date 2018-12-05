@@ -5,14 +5,15 @@
 #include <iostream>
 #include "Data.h"
 
-void solve(_In_ const std::array<std::array<wchar_t, 5>, 7>& input)
+template<size_t Rows, size_t Columns>
+void solve(_In_ const std::array<std::array<wchar_t, Columns>, Rows>& input)
 {
     for (size_t i = 0; i < input.size(); i++)
     {
-        const std::array<wchar_t, 5>& currentBoxId = input[i];
+        const std::array<wchar_t, Columns>& currentBoxId = input[i];
         for (size_t j = 0; j < i; j++)
         {
-            const std::array<wchar_t, 5>& comparingBoxId = input[j];
+            const std::array<wchar_t, Columns>& comparingBoxId = input[j];
             size_t differences = 0;
 
             for (size_t k = 0; k < currentBoxId.size(); k++)
@@ -47,5 +48,5 @@ void solve(_In_ const std::array<std::array<wchar_t, 5>, 7>& input)
 
 int main()
 {
-    solve(sample_boxids);
+    solve(real_boxids);
 }
