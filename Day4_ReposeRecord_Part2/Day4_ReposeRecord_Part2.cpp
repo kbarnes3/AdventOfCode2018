@@ -94,7 +94,14 @@ void solve(_In_ const std::array<Record, Number>& input_records)
     }
 
     // Find the minute each guard slept the most
-    std::map<GuardId, ptrdiff_t> sleepiestMinutes;
+    struct GuardSleepingStats
+    {
+        GuardId Id;
+        ptrdiff_t SleepiestMinute;
+        unsigned int TimesAsleep;
+    };
+    std::vector<GuardSleepingStats> sleepingStats;
+
     for (const std::pair<GuardId, std::vector<unsigned int>>& guardStats : minutesSlept)
     {
         std::array<unsigned int, 60> minutesHistogram = {};
@@ -102,21 +109,24 @@ void solve(_In_ const std::array<Record, Number>& input_records)
         {
             minutesHistogram[minute]++;
         }
-        ptrdiff_t sleepiestMinute = std::max_element(minutesHistogram.begin(), minutesHistogram.end()) - minutesHistogram.begin();
+        std::array<unsigned int, 60>::iterator sleepiestMinuteIter = std::max_element(minutesHistogram.begin(), minutesHistogram.end());
+        ptrdiff_t sleepiestMinute = sleepiestMinuteIter - minutesHistogram.begin();
 
-        sleepiestMinutes[guardStats.first] = sleepiestMinute;
+        sleepingStats.push_back({ guardStats.first, sleepiestMinute, *sleepiestMinuteIter });
+        //std::wcout << L"Guard " << guardStats.first << L" slept through 00:" << sleepiestMinute << L" " << *sleepiestMinuteIter << L" times." << std::endl;
     }
 
-    std::map<GuardId, ptrdiff_t>::const_iterator sleepiestGuard = std::max_element(
-        sleepiestMinutes.cbegin(),
-        sleepiestMinutes.cend(),
-        [](const std::pair<GuardId, ptrdiff_t>& a,
-            const std::pair<GuardId, ptrdiff_t>& b)
+    typename std::vector<GuardSleepingStats>::const_iterator sleepiestGuard = std::max_element(
+        sleepingStats.cbegin(),
+        sleepingStats.cend(),
+        [](const GuardSleepingStats& a,
+            const GuardSleepingStats& b)
         {
-            return a.second < b.second;
+            return a.TimesAsleep < b.TimesAsleep;
         });
 
-    std::wcout << sleepiestGuard->first * sleepiestGuard->second << std::endl;
+    //std::wcout << L"The sleepiest guard was Guard " << sleepiestGuard->Id << " who slept the most through 00:" << sleepiestGuard->SleepiestMinute << L"." << std::endl;
+    std::wcout << sleepiestGuard->Id * sleepiestGuard->SleepiestMinute << std::endl;
 
 }
 

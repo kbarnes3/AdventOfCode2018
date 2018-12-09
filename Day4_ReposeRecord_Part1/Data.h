@@ -50,7 +50,7 @@ const std::array<Record, 17> sample_records = { {
     { { 1518, 11, 5, 0, 55 }, EventType::WakeUp, 0 },
 } };
 
-const std::array<Record, 935> input_records = { {
+const std::array<Record, 934> input_records = { {
 { { 1518, 7, 4, 0, 1 }, EventType::FallAsleep, 0 },
 { { 1518, 6, 27, 0, 42 }, EventType::WakeUp, 0 },
 { { 1518, 6, 12, 0, 48 }, EventType::WakeUp, 0 },
