@@ -122,5 +122,5 @@ void solve(_In_ const std::array<Record, Number>& input_records)
 
 int main()
 {
-    solve(sample_records);
+    solve(input_records);
 }
