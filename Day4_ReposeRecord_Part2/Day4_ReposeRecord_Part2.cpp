@@ -38,7 +38,7 @@ void solve(_In_ const std::array<Record, Number>& input_records)
         return false;
     });
 
-    // Find which guard slept the most
+    // Find which guards were asleep on which minutes
     std::map<GuardId, std::vector<unsigned int>> minutesSlept;
 
     bool guardAssigned = false;
@@ -93,26 +93,30 @@ void solve(_In_ const std::array<Record, Number>& input_records)
         }
     }
 
-    // Find the guard with the most minutes slept
-    std::map<GuardId, std::vector<unsigned int>>::iterator sleepiestGuard = std::max_element(
-        minutesSlept.begin(),
-        minutesSlept.end(),
-        [](const std::pair < GuardId, std::vector<unsigned int> >& a,
-            const std::pair < GuardId, std::vector<unsigned int> >& b)
+    // Find the minute each guard slept the most
+    std::map<GuardId, ptrdiff_t> sleepiestMinutes;
+    for (const std::pair<GuardId, std::vector<unsigned int>>& guardStats : minutesSlept)
     {
-        return a.second.size() < b.second.size();
-    });
+        std::array<unsigned int, 60> minutesHistogram = {};
+        for (unsigned int minute : guardStats.second)
+        {
+            minutesHistogram[minute]++;
+        }
+        ptrdiff_t sleepiestMinute = std::max_element(minutesHistogram.begin(), minutesHistogram.end()) - minutesHistogram.begin();
 
-    GuardId id = sleepiestGuard->first;
-    // Find the minute the guard slept the most
-    std::array<unsigned int, 60> minutesHistogram = {};
-    for (unsigned int minute : sleepiestGuard->second)
-    {
-        minutesHistogram[minute]++;
+        sleepiestMinutes[guardStats.first] = sleepiestMinute;
     }
-    ptrdiff_t sleepiestMinute = std::max_element(minutesHistogram.begin(), minutesHistogram.end()) - minutesHistogram.begin();
 
-    std::wcout << id * sleepiestMinute << std::endl;
+    std::map<GuardId, ptrdiff_t>::const_iterator sleepiestGuard = std::max_element(
+        sleepiestMinutes.cbegin(),
+        sleepiestMinutes.cend(),
+        [](const std::pair<GuardId, ptrdiff_t>& a,
+            const std::pair<GuardId, ptrdiff_t>& b)
+        {
+            return a.second < b.second;
+        });
+
+    std::wcout << sleepiestGuard->first * sleepiestGuard->second << std::endl;
 
 }
 
