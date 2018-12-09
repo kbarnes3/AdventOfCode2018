@@ -986,4 +986,3 @@ const std::array<Record, 935> input_records = { {
 { { 1518, 5, 10, 0, 42 }, EventType::FallAsleep, 0 },
 { { 1518, 10, 19, 0, 4 }, EventType::GuardChange, 2963 },
 } };
-

@@ -1,4 +1,4 @@
-// Day4_ReposeRecord_Part1.cpp : This file contains the 'main' function. Program execution begins and ends there.
+// Day4_ReposeRecord_Part2.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 
 #include "pch.h"
@@ -13,7 +13,7 @@ void solve(_In_ const std::array<Record, Number>& input_records)
         sorted_records.begin(),
         sorted_records.end(),
         [](const Record& a,
-           const Record& b) -> bool
+            const Record& b) -> bool
     {
         if (a.TimeStamp.Year != b.TimeStamp.Year)
         {
@@ -37,7 +37,7 @@ void solve(_In_ const std::array<Record, Number>& input_records)
         }
         return false;
     });
-    
+
     // Find which guard slept the most
     std::map<GuardId, std::vector<unsigned int>> minutesSlept;
 
@@ -98,10 +98,10 @@ void solve(_In_ const std::array<Record, Number>& input_records)
         minutesSlept.begin(),
         minutesSlept.end(),
         [](const std::pair < GuardId, std::vector<unsigned int> >& a,
-           const std::pair < GuardId, std::vector<unsigned int> >& b)
-        {
-            return a.second.size() < b.second.size();
-        });
+            const std::pair < GuardId, std::vector<unsigned int> >& b)
+    {
+        return a.second.size() < b.second.size();
+    });
 
     GuardId id = sleepiestGuard->first;
     // Find the minute the guard slept the most
@@ -118,5 +118,5 @@ void solve(_In_ const std::array<Record, Number>& input_records)
 
 int main()
 {
-    solve(input_records);
+    solve(sample_records);
 }

@@ -11,6 +11,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Day3_NoMatterHowYouSliceIt_
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Day4_ReposeRecord_Part1", "Day4_ReposeRecord_Part1\Day4_ReposeRecord_Part1.vcxproj", "{A337E241-F827-4CE0-B34C-48ABDF93C286}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Day4_ReposeRecord_Part2", "Day4_ReposeRecord_Part2\Day4_ReposeRecord_Part2.vcxproj", "{F146BC95-79F1-4A92-AEBD-E2F5BA48B582}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -51,6 +53,14 @@ Global
 		{A337E241-F827-4CE0-B34C-48ABDF93C286}.Release|x64.Build.0 = Release|x64
 		{A337E241-F827-4CE0-B34C-48ABDF93C286}.Release|x86.ActiveCfg = Release|Win32
 		{A337E241-F827-4CE0-B34C-48ABDF93C286}.Release|x86.Build.0 = Release|Win32
+		{F146BC95-79F1-4A92-AEBD-E2F5BA48B582}.Debug|x64.ActiveCfg = Debug|x64
+		{F146BC95-79F1-4A92-AEBD-E2F5BA48B582}.Debug|x64.Build.0 = Debug|x64
+		{F146BC95-79F1-4A92-AEBD-E2F5BA48B582}.Debug|x86.ActiveCfg = Debug|Win32
+		{F146BC95-79F1-4A92-AEBD-E2F5BA48B582}.Debug|x86.Build.0 = Debug|Win32
+		{F146BC95-79F1-4A92-AEBD-E2F5BA48B582}.Release|x64.ActiveCfg = Release|x64
+		{F146BC95-79F1-4A92-AEBD-E2F5BA48B582}.Release|x64.Build.0 = Release|x64
+		{F146BC95-79F1-4A92-AEBD-E2F5BA48B582}.Release|x86.ActiveCfg = Release|Win32
+		{F146BC95-79F1-4A92-AEBD-E2F5BA48B582}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
