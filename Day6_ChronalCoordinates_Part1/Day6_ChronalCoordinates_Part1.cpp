@@ -123,5 +123,5 @@ void solve(_In_ std::array<Coordinate, Size>& coordinates)
 
 int main()
 {
-    solve(sample_coordinates);
+    solve(input_coordinates);
 }
