@@ -5,32 +5,32 @@
 #include <iostream>
 #include "Data.h"
 
-wchar_t toggleCase(_In_ wchar_t letter)
+wchar_t toggleCase(_In_ char letter)
 {
-	if (iswupper(letter))
+	if (isupper(letter))
 	{
-		return towlower(letter);
+		return tolower(letter);
 	}
 	else
 	{
-		return towupper(letter);
+		return toupper(letter);
 	}
 }
 
 template<size_t Size>
-void solve(_In_ const wchar_t (&input)[Size])
+void solve(_In_ const char(&input)[Size])
 {
 	static_assert(Size > 1);
 
-	std::vector<wchar_t> units;
+	std::vector<char> units;
 	units.assign(input, input + Size - 1); // Use Size - 1 since our input is null terminated;
 
-	std::vector<wchar_t>::iterator iter = units.begin();
+	std::vector<char>::iterator iter = units.begin();
 
 	// Go through the list of units that we have, looking for two letters next to each other that will react
 	while (iter != units.end())
 	{
-		std::vector<wchar_t>::iterator next = iter + 1;
+		std::vector<char>::iterator next = iter + 1;
 		wchar_t reactingLetter = toggleCase(*iter);
 		if (*next == reactingLetter)
 		{
@@ -49,5 +49,5 @@ void solve(_In_ const wchar_t (&input)[Size])
 
 int main()
 {
-	solve<17>(sample_units);
+	solve(input_units);
 }
