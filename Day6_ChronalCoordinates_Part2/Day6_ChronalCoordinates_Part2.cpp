@@ -49,9 +49,9 @@ void solve(_In_ std::array<Coordinate, Size>& coordinates, _In_ size_t maxDistan
     }
 
     // Then look at points within these bounds and compute its total distance
-    for (size_t x = min_x + 1; x < max_x; x++)
+    for (size_t x = min_x; x <= max_x; x++)
     {
-        for (size_t y = min_y + 1; y < max_y; y++)
+        for (size_t y = min_y; y <= max_y; y++)
         {
             size_t totalDistance = std::accumulate(
                 coordinates.cbegin(),
@@ -77,4 +77,5 @@ void solve(_In_ std::array<Coordinate, Size>& coordinates, _In_ size_t maxDistan
 int main()
 {
     solve(sample_coordinates, 32);
+    //solve(input_coordinates, 10000);
 }
