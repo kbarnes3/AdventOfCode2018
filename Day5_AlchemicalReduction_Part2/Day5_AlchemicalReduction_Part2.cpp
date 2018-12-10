@@ -89,5 +89,5 @@ void solve(_In_ const char(&input)[Size])
 
 int main()
 {
-	solve(sample_units);
+	solve(input_units);
 }
