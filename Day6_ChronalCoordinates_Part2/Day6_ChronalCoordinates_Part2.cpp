@@ -5,6 +5,26 @@
 #include <iostream>
 #include "Data.h"
 
+bool isOnXEdge(_In_ size_t min_x, _In_ size_t max_x, _In_ size_t x)
+{
+    return (x == min_x || x == max_x);
+}
+
+bool isOnYEdge(_In_ size_t min_y, _In_ size_t max_y, _In_ size_t y)
+{
+    return (y == min_y || y == max_y);
+}
+
+bool isOnEdge(_In_ size_t min_x, _In_ size_t max_x, _In_ size_t min_y, _In_ size_t max_y, _In_ size_t x, _In_ size_t y)
+{
+    return isOnXEdge(min_x, max_x, x) || isOnYEdge(min_y, max_y, y);
+}
+
+bool isOnCorner(_In_ size_t min_x, _In_ size_t max_x, _In_ size_t min_y, _In_ size_t max_y, _In_ size_t x, _In_ size_t y)
+{
+    return isOnXEdge(min_x, max_x, x) && isOnYEdge(min_y, max_y, y);
+}
+
 size_t distance(_In_ size_t x, _In_ size_t y, _In_ const Coordinate& coordinate)
 {
     size_t distance = 0;
@@ -65,6 +85,8 @@ void solve(_In_ std::array<Coordinate, Size>& coordinates, _In_ size_t maxDistan
 
             if (totalDistance < maxDistance)
             {
+                // If this point is close enough, check if it is along the border so we can count the points outside of it
+                
                 closeRegion++;
             }
 
