@@ -41,9 +41,9 @@ void solve(_In_ std::array<Coordinate, Size>& coordinates)
     for (Coordinate& coordinate : coordinates)
     {
         min_x = std::min(min_x, coordinate.X);
-        max_x = std::max(min_x, coordinate.X);
+        max_x = std::max(max_x, coordinate.X);
         min_y = std::min(min_y, coordinate.Y);
-        max_y = std::max(min_y, coordinate.Y);
+        max_y = std::max(max_y, coordinate.Y);
     }
 
     // Next mark any coordinates along these bounds as having an infinite area
