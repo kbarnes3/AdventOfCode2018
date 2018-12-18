@@ -3,34 +3,12 @@
 
 #include "pch.h"
 #include "Data.h"
+#include "StepManager.h"
+#include "Worker.h"
 #include <iostream>
 
-void print_steps(_In_ const std::map<wchar_t, std::set<wchar_t>>& steps)
-{
-    for (const std::pair<wchar_t, std::set<wchar_t>>& value : steps)
-    {
-        std::wcout << L"Step " << value.first << L" depends on ";
-        std::set<wchar_t>::const_iterator iter = value.second.cbegin();
-        if (iter == value.second.cend())
-        {
-            std::wcout << L"nothing." << std::endl;
-        }
-        else
-        {
-            std::wcout << L'{' << *iter;
-            iter++;
-            while (iter != value.second.cend())
-            {
-                std::wcout << L", " << *iter;
-                iter++;
-            }
-            std::wcout << L'}' << std::endl;
-        }
-    }
-}
-
-template<size_t Size>
-void solve(_In_ const std::array<Dependency, Size>& input_steps)
+template<size_t WorkerCount, size_t Size>
+void solve(_In_ const std::array<Dependency, Size>& input_steps, _In_ unsigned int starting_cost)
 {
     std::map<wchar_t, std::set<wchar_t>> steps;
     std::set<wchar_t> completedSteps;
@@ -60,46 +38,36 @@ void solve(_In_ const std::array<Dependency, Size>& input_steps)
         }
     }
 
-    //print_steps(steps);
+    StepManager stepManager(steps, starting_cost);
+    std::vector<Worker> workers(Size, Worker(stepManager));
 
-    // Now try and drain the map of steps by completing and removing steps we can
-    // std::map is sorted, so starting at the front and matching the first one we can
-    // will order things appropriately
-    while (!steps.empty())
+    // Now tick until none of the workers accomplish anything
+    unsigned int tick = 0;
+    do
     {
-        std::map<wchar_t, std::set<wchar_t>>::iterator iter = steps.begin();
-        while (iter != steps.end())
+        bool workHappened = std::accumulate(
+            workers.begin(),
+            workers.end(),
+            false,
+            [](_In_ bool a, _In_ Worker& b) -> bool
+            {
+                bool didWork = b.Tick();
+                return a || didWork;
+            }
+        );
+
+        if (!workHappened)
         {
-            bool allRequirementsDone = true;
-            for (wchar_t requirement : iter->second)
-            {
-                if (completedSteps.count(requirement) == 0)
-                {
-                    allRequirementsDone = false;
-                    break;
-                }
-            }
-
-            if (allRequirementsDone)
-            {
-                std::wcout << iter->first;
-                completedSteps.insert(iter->first);
-                steps.erase(iter);
-                break;
-            }
-
-            iter++;
+            std::wcout << tick << std::endl;
+            return;
         }
 
-        if (iter == steps.end())
-        {
-            std::wcout << std::endl << L"No matches found" << std::endl;
-        }
-    }
-    std::wcout << std::endl;
+        tick++;
+
+    } while (true);
 }
 
 int main()
 {
-    solve(input_steps);
+    solve<2>(sample_steps, 0);
 }

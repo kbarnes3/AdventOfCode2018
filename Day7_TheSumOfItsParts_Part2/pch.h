@@ -10,6 +10,8 @@
 #define PCH_H
 
 #include <map>
+#include <numeric>
 #include <set>
+#include <vector>
 
 #endif //PCH_H
