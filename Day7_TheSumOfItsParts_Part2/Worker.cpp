@@ -25,10 +25,8 @@ bool Worker::Tick()
             m_remainingWork = nextStep.second;
         }
     }
-    else
-    {
-        m_remainingWork--;
-    }
+
+    m_remainingWork--;
 
     // Check to see if we completed the work
     if (m_remainingWork == 0)

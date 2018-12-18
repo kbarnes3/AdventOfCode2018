@@ -24,7 +24,17 @@ std::pair<wchar_t, unsigned int> StepManager::GetNextStep()
 
 void StepManager::CompleteStep(_In_ wchar_t step)
 {
-    m_completedSteps.insert(step);
+    m_pendingCompletedSteps.push_back(step);
+}
+
+void StepManager::FlushCompleteQueue()
+{
+    std::for_each(m_pendingCompletedSteps.cbegin(), m_pendingCompletedSteps.cend(), 
+        [this](_In_ wchar_t step)
+        {
+            m_completedSteps.insert(step);
+        });
+    m_pendingCompletedSteps.clear();
 }
 
 wchar_t StepManager::PopWaitingStep()

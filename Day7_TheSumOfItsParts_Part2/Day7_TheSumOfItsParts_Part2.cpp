@@ -39,7 +39,7 @@ void solve(_In_ const std::array<Dependency, Size>& input_steps, _In_ unsigned i
     }
 
     StepManager stepManager(steps, starting_cost);
-    std::vector<Worker> workers(Size, Worker(stepManager));
+    std::vector<Worker> workers(WorkerCount, Worker(stepManager));
 
     // Now tick until none of the workers accomplish anything
     unsigned int tick = 0;
@@ -62,6 +62,7 @@ void solve(_In_ const std::array<Dependency, Size>& input_steps, _In_ unsigned i
             return;
         }
 
+        stepManager.FlushCompleteQueue();
         tick++;
 
     } while (true);
@@ -69,5 +70,6 @@ void solve(_In_ const std::array<Dependency, Size>& input_steps, _In_ unsigned i
 
 int main()
 {
-    solve<2>(sample_steps, 0);
+    //solve<2>(sample_steps, 0);
+    solve<5>(input_steps, 60);
 }
