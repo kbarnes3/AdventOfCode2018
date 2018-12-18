@@ -101,5 +101,5 @@ void solve(_In_ const std::array<Dependency, Size>& input_steps)
 
 int main()
 {
-    solve(sample_steps);
+    solve(input_steps);
 }
