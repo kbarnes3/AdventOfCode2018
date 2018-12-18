@@ -25,8 +25,11 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Day7_TheSumOfItsParts_Part1
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Day7_TheSumOfItsParts_Common", "Day7_TheSumOfItsParts_Common\Day7_TheSumOfItsParts_Common.vcxitems", "{F7A6570B-8394-4383-9D01-A0DA24F7B414}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Day7_TheSumOfItsParts_Part2", "Day7_TheSumOfItsParts_Part2\Day7_TheSumOfItsParts_Part2.vcxproj", "{17BA319B-6217-4F00-9DBA-92E946309569}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		Day7_TheSumOfItsParts_Common\Day7_TheSumOfItsParts_Common.vcxitems*{17ba319b-6217-4f00-9dba-92e946309569}*SharedItemsImports = 4
 		Day7_TheSumOfItsParts_Common\Day7_TheSumOfItsParts_Common.vcxitems*{bb29d2d9-ca0b-4832-ad66-f912e460b2ff}*SharedItemsImports = 4
 		Day7_TheSumOfItsParts_Common\Day7_TheSumOfItsParts_Common.vcxitems*{f7a6570b-8394-4383-9d01-a0da24f7b414}*SharedItemsImports = 9
 	EndGlobalSection
@@ -117,6 +120,14 @@ Global
 		{BB29D2D9-CA0B-4832-AD66-F912E460B2FF}.Release|x64.Build.0 = Release|x64
 		{BB29D2D9-CA0B-4832-AD66-F912E460B2FF}.Release|x86.ActiveCfg = Release|Win32
 		{BB29D2D9-CA0B-4832-AD66-F912E460B2FF}.Release|x86.Build.0 = Release|Win32
+		{17BA319B-6217-4F00-9DBA-92E946309569}.Debug|x64.ActiveCfg = Debug|x64
+		{17BA319B-6217-4F00-9DBA-92E946309569}.Debug|x64.Build.0 = Debug|x64
+		{17BA319B-6217-4F00-9DBA-92E946309569}.Debug|x86.ActiveCfg = Debug|Win32
+		{17BA319B-6217-4F00-9DBA-92E946309569}.Debug|x86.Build.0 = Debug|Win32
+		{17BA319B-6217-4F00-9DBA-92E946309569}.Release|x64.ActiveCfg = Release|x64
+		{17BA319B-6217-4F00-9DBA-92E946309569}.Release|x64.Build.0 = Release|x64
+		{17BA319B-6217-4F00-9DBA-92E946309569}.Release|x86.ActiveCfg = Release|Win32
+		{17BA319B-6217-4F00-9DBA-92E946309569}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
