@@ -10,13 +10,13 @@
 template<size_t Size>
 void solve(_In_ const std::array<unsigned short, Size>& license)
 {
-    typename NodeProcessor<Size>::ProcessedNode node =
-        NodeProcessor<Size>::ProcessNode(license.cbegin());
+    NodeProcessor<Size> node(license.cbegin());
+    unsigned short value = node.GetValue();
 
-    std::wcout << node.second << std::endl;
+    std::wcout << value << std::endl;
 }
 
 int main()
 {
-    solve(inputLicense);
+    solve(sampleLicense);
 }

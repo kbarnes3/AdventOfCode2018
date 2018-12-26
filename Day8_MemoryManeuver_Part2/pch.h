@@ -9,6 +9,9 @@
 #ifndef PCH_H
 #define PCH_H
 
+#include <map>
+#include <numeric>
 #include <utility>
+#include <vector>
 
 #endif //PCH_H
