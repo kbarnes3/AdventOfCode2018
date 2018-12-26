@@ -18,5 +18,5 @@ void solve(_In_ const std::array<unsigned short, Size>& license)
 
 int main()
 {
-    solve(sampleLicense);
+    solve(inputLicense);
 }
