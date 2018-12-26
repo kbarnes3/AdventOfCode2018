@@ -31,11 +31,14 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Day8_MemoryManeuver_Common"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Day8_MemoryManeuver_Part1", "Day8_MemoryManeuver_Part1\Day8_MemoryManeuver_Part1.vcxproj", "{33351026-0A7D-4C8E-8083-AEE9946F8770}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Day8_MemoryManeuver_Part2", "Day8_MemoryManeuver_Part2\Day8_MemoryManeuver_Part2.vcxproj", "{343312EB-9A8B-48F5-8857-E45ABCCA6643}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Day8_MemoryManeuver_Common\Day8_MemoryManeuver_Common.vcxitems*{0099a750-fbad-4005-b51d-ce3c10edbbaa}*SharedItemsImports = 9
 		Day7_TheSumOfItsParts_Common\Day7_TheSumOfItsParts_Common.vcxitems*{17ba319b-6217-4f00-9dba-92e946309569}*SharedItemsImports = 4
 		Day8_MemoryManeuver_Common\Day8_MemoryManeuver_Common.vcxitems*{33351026-0a7d-4c8e-8083-aee9946f8770}*SharedItemsImports = 4
+		Day8_MemoryManeuver_Common\Day8_MemoryManeuver_Common.vcxitems*{343312eb-9a8b-48f5-8857-e45abcca6643}*SharedItemsImports = 4
 		Day7_TheSumOfItsParts_Common\Day7_TheSumOfItsParts_Common.vcxitems*{bb29d2d9-ca0b-4832-ad66-f912e460b2ff}*SharedItemsImports = 4
 		Day7_TheSumOfItsParts_Common\Day7_TheSumOfItsParts_Common.vcxitems*{f7a6570b-8394-4383-9d01-a0da24f7b414}*SharedItemsImports = 9
 	EndGlobalSection
@@ -142,6 +145,14 @@ Global
 		{33351026-0A7D-4C8E-8083-AEE9946F8770}.Release|x64.Build.0 = Release|x64
 		{33351026-0A7D-4C8E-8083-AEE9946F8770}.Release|x86.ActiveCfg = Release|Win32
 		{33351026-0A7D-4C8E-8083-AEE9946F8770}.Release|x86.Build.0 = Release|Win32
+		{343312EB-9A8B-48F5-8857-E45ABCCA6643}.Debug|x64.ActiveCfg = Debug|x64
+		{343312EB-9A8B-48F5-8857-E45ABCCA6643}.Debug|x64.Build.0 = Debug|x64
+		{343312EB-9A8B-48F5-8857-E45ABCCA6643}.Debug|x86.ActiveCfg = Debug|Win32
+		{343312EB-9A8B-48F5-8857-E45ABCCA6643}.Debug|x86.Build.0 = Debug|Win32
+		{343312EB-9A8B-48F5-8857-E45ABCCA6643}.Release|x64.ActiveCfg = Release|x64
+		{343312EB-9A8B-48F5-8857-E45ABCCA6643}.Release|x64.Build.0 = Release|x64
+		{343312EB-9A8B-48F5-8857-E45ABCCA6643}.Release|x86.ActiveCfg = Release|Win32
+		{343312EB-9A8B-48F5-8857-E45ABCCA6643}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
