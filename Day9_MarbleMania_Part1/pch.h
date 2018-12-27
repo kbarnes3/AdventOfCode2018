@@ -9,6 +9,8 @@
 #ifndef PCH_H
 #define PCH_H
 
-// TODO: add headers that you want to pre-compile here
+#include <algorithm>
+#include <memory>
+#include <vector>
 
 #endif //PCH_H
