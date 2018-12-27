@@ -25,6 +25,7 @@ void solve(_In_ unsigned int numberOfPlayers, _In_ unsigned int lastMarble)
                 --iter;
             }
             scores[currentPlayer] += *iter;
+            iter = marbleCirle.erase(iter);
         }
         else
         {
@@ -48,7 +49,13 @@ void solve(_In_ unsigned int numberOfPlayers, _In_ unsigned int lastMarble)
 
 int main()
 {
-    solve(9, 25);
+    //solve(9, 25);
+    //solve(10, 1618);
+    //solve(13, 7999);
+    //solve(17, 1104);
+    //solve(21, 6111);
+    //solve(30, 5807);
+    solve(411, 71170);
     return 0;
 }
 

@@ -104,6 +104,36 @@ public:
         return iterator(newNode);
     }
 
+    iterator erase(iterator pos)
+    {
+        if (std::shared_ptr<node> posNode = pos.m_currentNode.lock())
+        {
+            // Special case: last node
+            if (posNode->m_next == posNode && posNode->m_prev == posNode)
+            {
+                m_startNode = nullptr;
+                posNode->m_next = nullptr;
+                posNode->m_prev = nullptr;
+                return begin();
+            }
+
+            posNode->m_prev->m_next = posNode->m_next;
+            posNode->m_next->m_prev = posNode->m_prev;
+
+            // Special case, the start node was just removed
+            if (m_startNode == posNode)
+            {
+                m_startNode = posNode->m_next;
+            }
+
+            return iterator(posNode->m_next);
+        }
+        else
+        {
+            return iterator();
+        }
+    }
+
 private:
     struct node
     {
