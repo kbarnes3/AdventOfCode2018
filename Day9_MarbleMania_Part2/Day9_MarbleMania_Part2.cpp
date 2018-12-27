@@ -55,6 +55,6 @@ int main()
     //solve(17, 1104);
     //solve(21, 6111);
     //solve(30, 5807);
-    solve(411, 71170);
+    solve(411, 7117000);
     return 0;
 }
