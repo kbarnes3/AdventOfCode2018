@@ -35,6 +35,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Day8_MemoryManeuver_Part2",
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Day9_MarbleMania_Part1", "Day9_MarbleMania_Part1\Day9_MarbleMania_Part1.vcxproj", "{BD1F3630-1332-4938-AE7E-58664530D6B5}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Day9_MarbleMania_Part2", "Day9_MarbleMania_Part2\Day9_MarbleMania_Part2.vcxproj", "{FD37F4B9-E1E2-49C9-939E-C20A374904AD}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Day8_MemoryManeuver_Common\Day8_MemoryManeuver_Common.vcxitems*{0099a750-fbad-4005-b51d-ce3c10edbbaa}*SharedItemsImports = 9
@@ -163,6 +165,14 @@ Global
 		{BD1F3630-1332-4938-AE7E-58664530D6B5}.Release|x64.Build.0 = Release|x64
 		{BD1F3630-1332-4938-AE7E-58664530D6B5}.Release|x86.ActiveCfg = Release|Win32
 		{BD1F3630-1332-4938-AE7E-58664530D6B5}.Release|x86.Build.0 = Release|Win32
+		{FD37F4B9-E1E2-49C9-939E-C20A374904AD}.Debug|x64.ActiveCfg = Debug|x64
+		{FD37F4B9-E1E2-49C9-939E-C20A374904AD}.Debug|x64.Build.0 = Debug|x64
+		{FD37F4B9-E1E2-49C9-939E-C20A374904AD}.Debug|x86.ActiveCfg = Debug|Win32
+		{FD37F4B9-E1E2-49C9-939E-C20A374904AD}.Debug|x86.Build.0 = Debug|Win32
+		{FD37F4B9-E1E2-49C9-939E-C20A374904AD}.Release|x64.ActiveCfg = Release|x64
+		{FD37F4B9-E1E2-49C9-939E-C20A374904AD}.Release|x64.Build.0 = Release|x64
+		{FD37F4B9-E1E2-49C9-939E-C20A374904AD}.Release|x86.ActiveCfg = Release|Win32
+		{FD37F4B9-E1E2-49C9-939E-C20A374904AD}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
