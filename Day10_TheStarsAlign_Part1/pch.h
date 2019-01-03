@@ -9,6 +9,7 @@
 #ifndef PCH_H
 #define PCH_H
 
-// TODO: add headers that you want to pre-compile here
+#include <algorithm>
+#include <map>
 
 #endif //PCH_H

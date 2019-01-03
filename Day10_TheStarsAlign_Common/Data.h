@@ -21,7 +21,7 @@ struct Point
 
 // Convert the input data with this regex:
 // %s/position = < *\(-\?\d\+\), \(-\?\d\+\)> velocity = < *\(-\?\d\+\), \(-\?\d\+\)>/    { { \1, \2 }, { \3, \4 } },
-std::array<Point, 31> samplePoints = { {
+const std::array<Point, 31> samplePoints = { {
     { { 9, 1 }, { 0, 2 } },
     { { 7, 0 }, { -1, 0 } },
     { { 3, -2 }, { -1, 1 } },
