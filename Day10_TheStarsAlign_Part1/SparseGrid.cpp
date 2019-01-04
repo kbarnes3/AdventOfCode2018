@@ -25,8 +25,8 @@ void SparseGrid::Insert(_In_ int x, _In_ int y, _In_ GridValue value)
         firstInsert = true;
     }
 
-    std::map<int, GridValue>& row = GetRow(x);
-    row[y] = value;
+    std::map<int, GridValue>& row = GetRow(y);
+    row[x] = value;
 
     if (firstInsert)
     {
@@ -46,7 +46,7 @@ void SparseGrid::Insert(_In_ int x, _In_ int y, _In_ GridValue value)
 
 GridValue SparseGrid::GetValue(_In_ int x, _In_ int y) const
 {
-    std::map<int, std::map<int, GridValue>>::const_iterator iter = m_grid.find(x);
+    std::map<int, std::map<int, GridValue>>::const_iterator iter = m_grid.find(y);
 
     if (iter == m_grid.cend())
     {
@@ -54,7 +54,7 @@ GridValue SparseGrid::GetValue(_In_ int x, _In_ int y) const
     }
 
     const std::map<int, GridValue>& row = iter->second;
-    std::map<int, GridValue>::const_iterator row_iter = row.find(y);
+    std::map<int, GridValue>::const_iterator row_iter = row.find(x);
 
     if (row_iter == row.cend())
     {

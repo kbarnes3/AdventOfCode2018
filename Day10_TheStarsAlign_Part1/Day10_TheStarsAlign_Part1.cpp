@@ -26,9 +26,9 @@ void printGrid(_In_ const SparseGrid& grid, _In_ std::ofstream& file)
         {GridValue::Unseen, '#'},
         {GridValue::Seen, '#'} };
 
-    for (int x = bounds.MinX; x <= bounds.MaxX; x++)
+    for (int y = bounds.MinY; y <= bounds.MaxY; y++)
     {
-        for (int y = bounds.MinY; y <= bounds.MaxY; y++)
+        for (int x = bounds.MinX; x <= bounds.MaxX; x++)
         {
             GridValue value = GridValue::Empty;
             value = grid.GetValue(x, y);
