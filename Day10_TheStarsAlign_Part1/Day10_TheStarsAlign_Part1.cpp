@@ -51,24 +51,20 @@ void markLetterAsSeen(_In_ SparseGrid& grid, _In_ int startX, _In_ int startY)
     }
 }
 
-size_t countLetters(_In_ SparseGrid& grid)
+size_t countLetters(_In_ SparseGrid& grid, _In_ const std::vector<Position>& points)
 {
     size_t letters = 0;
-    SparseGrid::Bounds bounds = grid.GetBounds();
 
-    for (int y = bounds.MinY; y <= bounds.MaxY; y++)
+    std::for_each(points.cbegin(), points.cend(), [&grid, &letters](_In_ const Position& point)
     {
-        for (int x = bounds.MinX; x <= bounds.MaxX; x++)
+        GridValue value = GridValue::Empty;
+        value = grid.GetValue(point.X, point.Y);
+        if (value == GridValue::Unseen)
         {
-            GridValue value = GridValue::Empty;
-            value = grid.GetValue(x, y);
-            if (value == GridValue::Unseen)
-            {
-                letters++;
-                markLetterAsSeen(grid, x, y);
-            }
+            letters++;
+            markLetterAsSeen(grid, point.X, point.Y);
         }
-    }
+    });
 
     return letters;
 }
@@ -122,24 +118,28 @@ template <size_t Size>
 bool solveAtTime(_In_ const std::array<Point, Size>& inputPoints, _In_ int seconds)
 {
     SparseGrid grid;
+    std::vector<Position> insertedPoints;
+
     std::for_each(inputPoints.cbegin(), inputPoints.cend(),
-        [&grid, seconds](_In_ const Point point)
+        [&grid, &insertedPoints, seconds](_In_ const Point point)
     {
         int x = point.Position.X + (point.Velocity.XPerSecond * seconds);
         int y = point.Position.Y + (point.Velocity.YPerSecond * seconds);
 
         grid.Insert(x, y, GridValue::Unseen);
+        insertedPoints.push_back({ x, y });
     });
 
     // The sample input had 2 letters with 31 points, or 15.5 points per letter.
     // Set our threshold to be about half that.
     size_t letterThreshold = Size / 8;
-    size_t letterCount = countLetters(grid);
+    size_t letterCount = countLetters(grid, insertedPoints);
 
-    std::wcout << L"After " << seconds << L" seconds, there are " << letterCount << L" letters." << std::endl;
+    //std::wcout << L"After " << seconds << L" seconds, there are " << letterCount << L" letters." << std::endl;
 
     if (letterCount <= letterThreshold)
     {
+        std::wcout << L"After " << seconds << L" seconds, there are " << letterCount << L" letters." << std::endl;
         displayGrid(grid);
         return true;
     }
@@ -150,19 +150,19 @@ bool solveAtTime(_In_ const std::array<Point, Size>& inputPoints, _In_ int secon
 }
 
 template <size_t Size>
-void solve(_In_ const std::array<Point, Size>& inputPoints)
+void solve(_In_ const std::array<Point, Size>& points)
 {
     int seconds = 0;
     bool solved = false;
     while (!solved)
     {
-        solved = solveAtTime(inputPoints, seconds);
+        solved = solveAtTime(points, seconds);
         seconds++;
     }
 }
 
 int main()
 {
-    solve(samplePoints);
+    solve(inputPoints);
     return 0;
 }
