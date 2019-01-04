@@ -12,4 +12,6 @@
 #include <algorithm>
 #include <map>
 
+#include <Windows.h>
+
 #endif //PCH_H

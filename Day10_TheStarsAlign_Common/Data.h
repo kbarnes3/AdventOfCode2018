@@ -3,14 +3,14 @@
 
 struct Position
 {
-    int x;
-    int y;
+    int X;
+    int Y;
 };
 
 struct Velocity
 {
-    int xPerSecond;
-    int yPerSecond;
+    int XPerSecond;
+    int YPerSecond;
 };
 
 struct Point
