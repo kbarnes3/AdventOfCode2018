@@ -18,23 +18,37 @@ std::string createTempFilename()
     return tempFileName;
 }
 
-void printGrid(_In_ const SparseGrid& grid)
+void printGrid(_In_ const SparseGrid& grid, _In_ std::ofstream& file)
 {
-    std::string filename = createTempFilename();
-    std::ofstream file;
-    file.open(filename);
-
     SparseGrid::Bounds bounds = grid.GetBounds();
+    const std::map<GridValue, char> printedValues = {
+        {GridValue::Empty, ' '},
+        {GridValue::Unseen, '#'},
+        {GridValue::Seen, '#'} };
+
     for (int x = bounds.MinX; x <= bounds.MaxX; x++)
     {
         for (int y = bounds.MinY; y <= bounds.MaxY; y++)
         {
             GridValue value = GridValue::Empty;
             value = grid.GetValue(x, y);
+            file << printedValues.at(value);
         }
+        file << std::endl;
     }
+}
+
+void displayGrid(_In_ const SparseGrid& grid)
+{
+    std::string filename = createTempFilename();
+    std::ofstream file;
+    file.open(filename);
+
+    printGrid(grid, file);
 
     file.close();
+
+    ShellExecuteA(NULL, nullptr, filename.data(), nullptr, nullptr, SW_SHOW);
 }
 
 template <size_t Size>
@@ -48,7 +62,7 @@ void solve(_In_ const std::array<Point, Size>& inputPoints)
             grid.Insert(pos.X, pos.Y, GridValue::Unseen);
         });
 
-    printGrid(grid);
+    displayGrid(grid);
 }
 
 int main()
