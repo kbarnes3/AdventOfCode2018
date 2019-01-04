@@ -23,8 +23,8 @@ void markLetterAsSeen(_In_ SparseGrid& grid, _In_ int startX, _In_ int startY)
             pointsInLetter.push(neighbor);
         }
 
-        // Right
-        neighbor = { point.X + 1, point.Y };
+        // Up & Left
+        neighbor = { point.X - 1, point.Y - 1 };
         neighborValue = grid.GetValue(neighbor.X, neighbor.Y);
         if (neighborValue == GridValue::Unseen)
         {
@@ -39,8 +39,40 @@ void markLetterAsSeen(_In_ SparseGrid& grid, _In_ int startX, _In_ int startY)
             pointsInLetter.push(neighbor);
         }
 
+        // Up & Right
+        neighbor = { point.X + 1, point.Y - 1 };
+        neighborValue = grid.GetValue(neighbor.X, neighbor.Y);
+        if (neighborValue == GridValue::Unseen)
+        {
+            pointsInLetter.push(neighbor);
+        }
+
+        // Right
+        neighbor = { point.X + 1, point.Y };
+        neighborValue = grid.GetValue(neighbor.X, neighbor.Y);
+        if (neighborValue == GridValue::Unseen)
+        {
+            pointsInLetter.push(neighbor);
+        }
+
+        // Down & Right
+        neighbor = { point.X + 1, point.Y + 1 };
+        neighborValue = grid.GetValue(neighbor.X, neighbor.Y);
+        if (neighborValue == GridValue::Unseen)
+        {
+            pointsInLetter.push(neighbor);
+        }
+
         // Down
         neighbor = { point.X, point.Y + 1 };
+        neighborValue = grid.GetValue(neighbor.X, neighbor.Y);
+        if (neighborValue == GridValue::Unseen)
+        {
+            pointsInLetter.push(neighbor);
+        }
+
+        // Down & Left
+        neighbor = { point.X - 1, point.Y + 1 };
         neighborValue = grid.GetValue(neighbor.X, neighbor.Y);
         if (neighborValue == GridValue::Unseen)
         {
