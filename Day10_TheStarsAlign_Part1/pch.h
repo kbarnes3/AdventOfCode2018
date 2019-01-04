@@ -10,6 +10,7 @@
 #define PCH_H
 
 #include <algorithm>
+#include <fstream>
 #include <map>
 
 #include <Windows.h>

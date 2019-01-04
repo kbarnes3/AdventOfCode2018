@@ -6,17 +6,35 @@
 #include <Data.h>
 #include "SparseGrid.h"
 
-void createTempFile()
+std::string createTempFilename()
 {
-    wchar_t dirname[MAX_PATH + 1] = {};
-    wchar_t filename[MAX_PATH] = {};
-    GetTempPathW(ARRAYSIZE(dirname), dirname);
-    GetTempFileNameW(dirname, L"AOC", 0, filename);
+    char dirname[MAX_PATH + 1] = {};
+    char filename[MAX_PATH] = {};
+    GetTempPathA(ARRAYSIZE(dirname), dirname);
+    GetTempFileNameA(dirname, "AOC", 0, filename);
+
+    std::string tempFileName(filename);
+
+    return tempFileName;
 }
 
-void printGrid(_In_ const SparseGrid& /*grid*/)
+void printGrid(_In_ const SparseGrid& grid)
 {
-    createTempFile();
+    std::string filename = createTempFilename();
+    std::ofstream file;
+    file.open(filename);
+
+    SparseGrid::Bounds bounds = grid.GetBounds();
+    for (int x = bounds.MinX; x <= bounds.MaxX; x++)
+    {
+        for (int y = bounds.MinY; y <= bounds.MaxY; y++)
+        {
+            GridValue value = GridValue::Empty;
+            value = grid.GetValue(x, y);
+        }
+    }
+
+    file.close();
 }
 
 template <size_t Size>

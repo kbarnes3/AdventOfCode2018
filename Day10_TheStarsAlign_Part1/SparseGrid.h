@@ -10,9 +10,22 @@ enum class GridValue
 class SparseGrid
 {
 public:
-    SparseGrid() = default;
+    struct Bounds
+    {
+        Bounds(_In_ int minX, _In_ int maxX, _In_ int minY, _In_ int maxY);
+ 
+        int MinX;
+        int MaxX;
+        int MinY;
+        int MaxY;
+    };
+
+    SparseGrid();
 
     void Insert(_In_ int x, _In_ int y, _In_ GridValue value);
+    
+    GridValue GetValue(_In_ int x, _In_ int y) const;
+    Bounds GetBounds() const;
 
 private:
     std::map<int, GridValue>& GetRow(_In_ int row);
