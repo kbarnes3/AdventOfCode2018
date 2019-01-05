@@ -66,6 +66,6 @@ void solve(int serialNumber)
 
 int main()
 {
-    solve(42);
+    solve(8979);
     return 0;
 }
