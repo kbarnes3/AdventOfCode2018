@@ -17,12 +17,12 @@ int computePowerLevel(int x, int y, int serialNumber)
     return powerLevel;
 }
 
-int computeTotalPower(const std::array<std::array<int, 300>, 300>& fuelCells, int x, int y)
+int computeTotalPower(const std::array<std::array<int, 300>, 300>& fuelCells, int x, int y, int size)
 {
     int power = 0;
-    for (int yOffset = y; yOffset < y + 3; yOffset++)
+    for (int yOffset = y; yOffset < y + size; yOffset++)
     {
-        for (int xOffset = x; xOffset < x + 3; xOffset++)
+        for (int xOffset = x; xOffset < x + size; xOffset++)
         {
             power += fuelCells[yOffset][xOffset];
         }
@@ -45,23 +45,28 @@ void solve(int serialNumber)
 
     int maxX = 0;
     int maxY = 0;
+    int maxSize = 0;
     int maxPower = -100;
 
-    for (int y = 0; y < 297; y++)
+    for (int size = 1; size <= 300; size++)
     {
-        for (int x = 0; x < 297; x++)
+        for (int y = 0; y <= 300 - size ; y++)
         {
-            int totalPower = computeTotalPower(fuelCells, x, y);
-            if (totalPower > maxPower)
+            for (int x = 0; x < 300 - size; x++)
             {
-                maxPower = totalPower;
-                maxX = x + 1;
-                maxY = y + 1;
+                int totalPower = computeTotalPower(fuelCells, x, y, size);
+                if (totalPower > maxPower)
+                {
+                    maxPower = totalPower;
+                    maxX = x + 1;
+                    maxY = y + 1;
+                    maxSize = size;
+                }
             }
         }
     }
 
-    std::wcout << maxX << L',' << maxY << std::endl;
+    std::wcout << maxX << L',' << maxY << L',' << maxSize << std::endl;
 }
 
 int main()
