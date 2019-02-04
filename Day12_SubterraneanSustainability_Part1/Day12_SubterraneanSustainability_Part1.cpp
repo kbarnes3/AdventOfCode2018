@@ -98,7 +98,7 @@ void solve(const std::array<bool, Count>& initialState, const std::map<std::tupl
 
 int main()
 {
-    solve(sampleInitialState, sampleRules, true);
+    solve(inputInitialState, inputRules, false);
     return 0;
 }
 
