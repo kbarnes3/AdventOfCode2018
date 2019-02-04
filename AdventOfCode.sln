@@ -49,6 +49,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Day12_SubterraneanSustainab
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Day12_SubterraneanSustainability_Common", "Day12_SubterraneanSustainability_Common\Day12_SubterraneanSustainability_Common.vcxitems", "{A2B82B93-7DE1-4C3B-85C0-DE7D7B256DF0}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Day12_SubterraneanSustainability_Part2", "Day12_SubterraneanSustainability_Part2\Day12_SubterraneanSustainability_Part2.vcxproj", "{CDD39D30-3D85-4F38-AE77-C8FC9AE3122E}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Day8_MemoryManeuver_Common\Day8_MemoryManeuver_Common.vcxitems*{0099a750-fbad-4005-b51d-ce3c10edbbaa}*SharedItemsImports = 9
@@ -60,6 +62,7 @@ Global
 		Day12_SubterraneanSustainability_Common\Day12_SubterraneanSustainability_Common.vcxitems*{7fef80c9-2ef4-4928-ac0a-21e000a9e31f}*SharedItemsImports = 4
 		Day12_SubterraneanSustainability_Common\Day12_SubterraneanSustainability_Common.vcxitems*{a2b82b93-7de1-4c3b-85c0-de7d7b256df0}*SharedItemsImports = 9
 		Day7_TheSumOfItsParts_Common\Day7_TheSumOfItsParts_Common.vcxitems*{bb29d2d9-ca0b-4832-ad66-f912e460b2ff}*SharedItemsImports = 4
+		Day12_SubterraneanSustainability_Common\Day12_SubterraneanSustainability_Common.vcxitems*{cdd39d30-3d85-4f38-ae77-c8fc9ae3122e}*SharedItemsImports = 4
 		Day7_TheSumOfItsParts_Common\Day7_TheSumOfItsParts_Common.vcxitems*{f7a6570b-8394-4383-9d01-a0da24f7b414}*SharedItemsImports = 9
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -221,6 +224,14 @@ Global
 		{7FEF80C9-2EF4-4928-AC0A-21E000A9E31F}.Release|x64.Build.0 = Release|x64
 		{7FEF80C9-2EF4-4928-AC0A-21E000A9E31F}.Release|x86.ActiveCfg = Release|Win32
 		{7FEF80C9-2EF4-4928-AC0A-21E000A9E31F}.Release|x86.Build.0 = Release|Win32
+		{CDD39D30-3D85-4F38-AE77-C8FC9AE3122E}.Debug|x64.ActiveCfg = Debug|x64
+		{CDD39D30-3D85-4F38-AE77-C8FC9AE3122E}.Debug|x64.Build.0 = Debug|x64
+		{CDD39D30-3D85-4F38-AE77-C8FC9AE3122E}.Debug|x86.ActiveCfg = Debug|Win32
+		{CDD39D30-3D85-4F38-AE77-C8FC9AE3122E}.Debug|x86.Build.0 = Debug|Win32
+		{CDD39D30-3D85-4F38-AE77-C8FC9AE3122E}.Release|x64.ActiveCfg = Release|x64
+		{CDD39D30-3D85-4F38-AE77-C8FC9AE3122E}.Release|x64.Build.0 = Release|x64
+		{CDD39D30-3D85-4F38-AE77-C8FC9AE3122E}.Release|x86.ActiveCfg = Release|Win32
+		{CDD39D30-3D85-4F38-AE77-C8FC9AE3122E}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
