@@ -2,7 +2,6 @@
 //
 
 #include "pch.h"
-#include <iostream>
 #include "Data.h"
 #include "MapIO.h"
 #include "RoomState.h"
@@ -22,6 +21,8 @@ void solve(_In_ const std::array < std::array<char, Columns + 1>, Rows>& initial
         map,
         elves,
         goblins);
+
+    MapIO::PrintMap(map);
 }
 
 int main()

@@ -11,9 +11,9 @@ public:
         std::vector<std::shared_ptr<Elf>>& elves,
         std::vector<std::shared_ptr<Goblin>>& goblins)
     {
-        for (size_t y = 0; y < Rows; y++)
+        for (size_t y = 0; y < Rows; ++y)
         {
-            for (size_t x = 0; x < Columns; x++)
+            for (size_t x = 0; x < Columns; ++x)
             {
                 char contents = initialMap[y][x];
                 switch (contents)
@@ -42,6 +42,39 @@ public:
                     RaiseFailFastException(nullptr, nullptr, 0);
                 }
             }
+        }
+    }
+
+    template<size_t Rows, size_t Columns>
+    static void PrintMap(const MapGrid<Rows, Columns>& map)
+    {
+        for (size_t y = 0; y < Rows; ++y)
+        {
+            for (size_t x = 0; x < Columns; ++x)
+            {
+                SquareContents square = map[y][x];
+                if (std::holds_alternative<Empty>(square))
+                {
+                    std::cout << EmptyChar;
+                }
+                else if (std::holds_alternative<Wall>(square))
+                {
+                    std::cout << WallChar;
+                }
+                else if (std::holds_alternative<std::shared_ptr<Elf>>(square))
+                {
+                    std::cout << ElfChar;
+                }
+                else if (std::holds_alternative<std::shared_ptr<Goblin>>(square))
+                {
+                    std::cout << GoblinChar;
+                }
+                else
+                {
+                    RaiseFailFastException(nullptr, nullptr, 0);
+                }
+            }
+            std::cout << std::endl;
         }
     }
 

@@ -10,6 +10,7 @@
 #define PCH_H
 
 #include <array>
+#include <iostream>
 #include <memory>
 #include <variant>
 #include <vector>
