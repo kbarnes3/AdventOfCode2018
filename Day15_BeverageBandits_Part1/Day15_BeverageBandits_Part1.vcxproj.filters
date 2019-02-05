@@ -18,12 +18,21 @@
     <ClInclude Include="pch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="RoomState.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MapIO.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Day15_BeverageBandits_Part1.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MapIO.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
