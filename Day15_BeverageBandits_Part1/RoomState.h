@@ -1,5 +1,10 @@
 #pragma once
 
+namespace MobStats
+{
+    static const int StartingHitPoints = 200;
+}
+
 class Empty
 {
 public:
@@ -17,23 +22,33 @@ public:
 class Elf
 {
 public:
-    Elf() : m_hitPoints(200)
+    Elf(size_t row, size_t column) :
+        m_hitPoints(MobStats::StartingHitPoints),
+        m_row(row),
+        m_column(column)
     {
 
     }
 
     int m_hitPoints;
+    size_t m_row;
+    size_t m_column;
 };
 
 class Goblin
 {
 public:
-    Goblin() : m_hitPoints(200)
+    Goblin(size_t row, size_t column) :
+        m_hitPoints(MobStats::StartingHitPoints),
+        m_row(row),
+        m_column(column)
     {
 
     }
 
     int m_hitPoints;
+    size_t m_row;
+    size_t m_column;
 };
 
 using SquareContents = std::variant<Empty, Wall, std::shared_ptr<Elf>, std::shared_ptr<Goblin>>;

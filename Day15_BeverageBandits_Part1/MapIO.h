@@ -26,14 +26,14 @@ public:
                     break;
                 case ElfChar:
                 {
-                    std::shared_ptr elf = std::make_shared<Elf>();
+                    std::shared_ptr elf = std::make_shared<Elf>(x, y);
                     loadedMap[y][x] = elf;
                     elves.push_back(elf);
                     break;
                 }
                 case GoblinChar:
                 {
-                    std::shared_ptr goblin = std::make_shared<Goblin>();
+                    std::shared_ptr goblin = std::make_shared<Goblin>(x, y);
                     loadedMap[y][x] = goblin;
                     goblins.push_back(goblin);
                     break;
